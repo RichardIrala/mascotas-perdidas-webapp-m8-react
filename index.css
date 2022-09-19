@@ -1,0 +1,11 @@
+:root {
+  --principalFont: "Poppins", sans-serif;
+  --weightNormal: 400;
+  --weightMedium: 500;
+  --weightBold: 700;
+}
+
+* {
+  margin: 0;
+  box-sizing: border-box;
+}
