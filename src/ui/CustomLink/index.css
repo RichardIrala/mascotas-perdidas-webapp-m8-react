@@ -1,0 +1,16 @@
+.menu-burger--content {
+  color: #000000;
+  text-decoration: none;
+  font-size: 36px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightBold);
+}
+@media (min-width: 900px) {
+  .menu-burger--content {
+    font-size: 20px;
+  }
+}
+.menu-burger--content:hover {
+  color: #3e3535;
+  border-bottom: solid #000000;
+}
