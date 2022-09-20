@@ -9,7 +9,8 @@ interface ButtonProps {
 
 export const ButtonRose = (props: ButtonProps) => {
   const typeProp = props.type ? props.type : "button";
-  const actionExist = props.action ? true : false;
+  const actionExist = !!props.action;
+
   return !actionExist ? (
     <button className={styles.button} type={typeProp}>
       {props.children}
