@@ -18,7 +18,7 @@ export const Componentes = () => {
       <br />
       <GeneralText>Soy el texto general</GeneralText>
       <br />
-      <GeneralText centred>Soy el texto general Centrado</GeneralText>
+      <GeneralText centred>Soy el texto centrado</GeneralText>
     </div>
   );
 };
