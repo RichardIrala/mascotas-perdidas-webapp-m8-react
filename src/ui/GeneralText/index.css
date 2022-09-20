@@ -1,0 +1,9 @@
+.text {
+  font-size: 20px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightMedium);
+}
+
+.textCentred {
+  text-align: center;
+}
