@@ -1,0 +1,10 @@
+.title {
+  /* padding: 0 20px; */
+  font-size: 40px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightBold);
+}
+
+.textCentred {
+  text-align: center;
+}
