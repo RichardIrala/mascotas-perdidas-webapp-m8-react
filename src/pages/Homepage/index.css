@@ -1,0 +1,18 @@
+.principal-box {
+  display: flex;
+  justify-content: center;
+}
+.secundary-box {
+  max-width: 335px;
+}
+.title-container {
+  display: flex;
+  justify-content: center;
+  padding: 33px 0px;
+}
+.get-geoloc-box {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+}
