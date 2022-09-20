@@ -1,14 +1,15 @@
 import { Layout } from "components/Layout";
 import { Componentes } from "pages/Componentes";
 import { Homepage } from "pages/Homepage";
+import { Welcome } from "pages/Welcome";
 import React from "react";
-import { Routes, Route, Outlet } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 export const AppRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<Outlet />}>
-        <Route path="hola" element={<h1>Soy el path hola</h1>} />
+      <Route path="/" element={<Layout />}>
+        <Route path="welcome" element={<Welcome />} />
         <Route index element={<Homepage />} />
       </Route>
       <Route path="componentes" element={<Componentes />} />
