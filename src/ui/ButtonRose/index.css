@@ -1,0 +1,14 @@
+.button {
+  background: #ff9df5;
+  width: 335px;
+  height: fit-content;
+  padding: 14px 32px;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--principalFont);
+  font-weight: var(--weightBold);
+}
+.button:active {
+  background: #c199bd;
+}
