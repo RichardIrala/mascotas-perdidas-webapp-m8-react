@@ -1,4 +1,5 @@
 import { Layout } from "components/Layout";
+import { CheckEmail } from "pages/CheckEmail";
 import { Componentes } from "pages/Componentes";
 import { Homepage } from "pages/Homepage";
 import { Welcome } from "pages/Welcome";
@@ -10,6 +11,7 @@ export const AppRoutes = () => {
     <Routes>
       <Route path="/" element={<Layout />}>
         <Route path="welcome" element={<Welcome />} />
+        <Route path="checkEmail" element={<CheckEmail />} />
         <Route index element={<Homepage />} />
       </Route>
       <Route path="componentes" element={<Componentes />} />
