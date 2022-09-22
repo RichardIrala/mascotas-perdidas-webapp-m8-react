@@ -1,0 +1,17 @@
+.label {
+  display: flex;
+  flex-direction: column;
+  font-family: var(--principalFont);
+  font-weight: var(--weightMedium);
+}
+.form__input {
+  font-size: 32px;
+  border-radius: 2px;
+  border: #000000 solid 2px;
+  width: 335px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightNormal);
+}
+
+.form__input::placeholder {
+}
