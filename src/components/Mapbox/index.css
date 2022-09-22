@@ -1,0 +1,36 @@
+.absolute-position {
+  position: absolute;
+  z-index: 150;
+  margin: 10px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightMedium);
+  background-color: rgb(228, 222, 213);
+}
+
+.absolute-position > a {
+  color: rgb(34, 32, 32);
+  text-decoration: none;
+}
+
+.pinIcon {
+  width: 40px;
+  height: 40px;
+}
+.userUbicationContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.userUbicationContainer span {
+  position: absolute;
+  font-size: 20px;
+}
+
+.userUbicationIcon {
+  width: 30px;
+  height: 30px;
+  border: solid #000 1px;
+  border-radius: 50%;
+}
