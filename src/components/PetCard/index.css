@@ -1,0 +1,69 @@
+.card-container {
+  min-width: 335px;
+  max-width: 335px;
+  border: solid;
+  border-radius: 4px;
+  box-shadow: 5px 5px 15px 5px #000000;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.pet-pic-container {
+  display: flex;
+  justify-content: center;
+  background: #f74fa3;
+}
+
+.set-limit-title {
+  max-width: 250px;
+}
+
+.pet-pic-container--img {
+  height: 150px;
+  max-width: 330px;
+}
+.info-container {
+  display: flex;
+  flex-direction: row;
+  padding: 12px 14px;
+  justify-content: space-between;
+}
+.pet-textinfo-container {
+  min-height: calc(200px - 24px);
+  display: flex;
+  flex-direction: column;
+}
+.info-container__report-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  max-width: 125px;
+  text-align: end;
+}
+
+.report-infopet__button {
+  color: rgb(9, 66, 128);
+  text-decoration: none;
+  font-size: 16px;
+  font-family: var(--principalFont);
+  font-weight: var(--weightNormal);
+}
+
+.report-infopet__button:hover {
+  transition: 2s;
+  color: #f74fa3;
+  text-decoration: underline;
+}
+
+.edit-pet,
+.pet-found {
+  height: 40px;
+  width: 40px;
+  cursor: pointer;
+}
+
+.display-none {
+  display: none;
+}
