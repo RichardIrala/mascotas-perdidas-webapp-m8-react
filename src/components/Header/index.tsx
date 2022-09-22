@@ -42,7 +42,7 @@ export const Header = () => {
               <CustomLink to={"componentes"} children={"Componentes"} />
             </li>
             <li>
-              <CustomLink to={"/"} children={"Mis datos"} />
+              <CustomLink to={"/checkEmail"} children={"Mis datos"} />
             </li>
             <li>
               <CustomLink to={"/"} children={"Mis mascotas reportadas"} />
