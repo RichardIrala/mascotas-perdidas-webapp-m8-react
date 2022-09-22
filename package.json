@@ -6,8 +6,10 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "live-server": "^1.2.2",
+    "mapbox-gl": "^2.10.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-mapbox-gl": "^5.1.1",
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
     "recoil": "^0.7.5",
