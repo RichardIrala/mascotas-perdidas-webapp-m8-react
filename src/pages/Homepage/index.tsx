@@ -32,10 +32,10 @@ export const Homepage = () => {
       <div className={styles["principal-box"]}>
         <div className={styles["secundary-box"]}>
           <div className={styles["title-container"]}>
-            <Title>Mascotas perdidas cerca tuyo</Title>
+            <Title centred>Mascotas perdidas cerca tuyo</Title>
           </div>
           <div className={styles["get-geoloc-box"]}>
-            <GeneralText>
+            <GeneralText centred>
               Para ver las mascotas reportadas cerca tuyo necesitamos permiso
               para conocer tu ubicación.
             </GeneralText>
