@@ -13,6 +13,7 @@
     "react-router-dom": "^6.3.0",
     "react-slick": "^0.29.0",
     "recoil": "^0.7.5",
+    "recoil-persist": "^4.2.0",
     "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
