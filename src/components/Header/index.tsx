@@ -56,6 +56,7 @@ export const Header = () => {
           </ul>
         </nav>
         <div className={styles["logued-name"]}>
+          {/* Falta ajustar para mostrar el verdadero nombre del usuario. */}
           <span>{email && token ? "Richard" : "..."}</span>
         </div>
       </div>
