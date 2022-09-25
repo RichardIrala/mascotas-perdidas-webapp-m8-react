@@ -10,7 +10,7 @@ const cosas = [1, 2, 3, 4, 5];
 export const Welcome = () => {
   return (
     <div>
-      <Mapbox />
+      <Mapbox goToElementId="petCardsContainer" height="100vh" width="100%" />
 
       {/* fin del mapa */}
       <div className={styles["title-container"]}>
