@@ -34,6 +34,8 @@
   min-height: calc(200px - 24px);
   display: flex;
   flex-direction: column;
+  max-width: 190px;
+  overflow-wrap: break-word;
 }
 .info-container__report-info {
   display: flex;
