@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { CSSProperties, useEffect, useState } from "react";
 import pinIcon from "/assets/pin-icon.png";
 import userUbicationIcon from "/assets/blue-circle-icon.png";
 import ReactMapboxGl, { Layer, Feature, Marker } from "react-mapbox-gl";
@@ -8,10 +8,18 @@ const Map = ReactMapboxGl({
     "pk.eyJ1IjoicmljaGFyZGlyYWxhIiwiYSI6ImNsNWc2ZHBpcDFpYTUzYm10MG1xaXVkZGYifQ.gYUtT27LEZY68W-sm7UoLA",
 });
 
-export const Mapbox = () => {
+interface MapboxProps {
+  width: string;
+  height: string;
+  goToElementId?: string;
+}
+
+export const Mapbox = (props: MapboxProps) => {
   // Posteriormente este loc va a ser reemplazado por un customHook y recibira a las mascotas
   const [loc, setLoc] = useState([-37, -20]);
   const [userUbication, setUserUbication] = useState(null);
+  const [referencePoint, setReferencePoint] = useState(null);
+
   useEffect(() => {
     function getGeolocation() {
       const aceptoGeoLoc = (position) => {
@@ -41,17 +49,28 @@ export const Mapbox = () => {
   return (
     <div>
       {/* Mapa mapbox */}
-      <button className={styles["absolute-position"]}>
-        <a href="#petCardsContainer">Ir debajo del mapa ⇩</a>
-      </button>
+      {props.goToElementId ? (
+        <button className={styles["absolute-position"]}>
+          {/* Esto podría ser más concluso. Analizar y pensar posibles mejoras. */}
+          <a href={"#" + props.goToElementId}>Ir debajo del mapa ⇩</a>
+        </button>
+      ) : (
+        ""
+      )}
       <Map
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={{
-          height: "100vh",
-          width: "100%",
+          height: props.height,
+          width: props.width,
         }}
-        center={userUbication || [0, 0]}
+        center={referencePoint || userUbication || [0, 0]}
         zoom={!!userUbication ? [14] : [0]}
+        // Pendiente agregar el evento que me haga un console log de la ubicacion clickeada. A futuro esta recibira un action
+        onClick={(event, mapData: any) => {
+          const { lng, lat } = mapData.lngLat;
+          console.log(mapData);
+          setReferencePoint([lng, lat]);
+        }}
       >
         {/* Averiguar qué es el Layer y Feature en mapbox */}
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
@@ -72,7 +91,14 @@ export const Mapbox = () => {
             </div>
           </Marker>
         ) : (
-          <Marker coordinates={[0, 0]} />
+          <div></div>
+        )}
+        {!!referencePoint ? (
+          <Marker coordinates={referencePoint}>
+            <img className={styles.userUbicationIcon} src={userUbicationIcon} />
+          </Marker>
+        ) : (
+          <div></div>
         )}
       </Map>
     </div>
