@@ -57,6 +57,7 @@
     gap: 45px;
   }
 }
+
 .menu-burger--content {
   color: #000000;
   text-decoration: none;
@@ -103,8 +104,10 @@
   color: #000000;
   display: flex;
   align-items: center;
+  justify-content: center;
   background: #ffffff;
   border-radius: 4px;
   padding: 2px 10px;
-  /* ${state.setFont(500)} */
+  font-family: var(--principalFont);
+  font-weight: var(--weightNormal);
 }

@@ -5,10 +5,13 @@ import huellaIcon from "/assets/huella-icon.png";
 import styles from "./index.css";
 import { useNavigate } from "react-router-dom";
 import { CustomLink } from "ui/CustomLink";
+import { useRecoilValue } from "recoil";
+import { userState } from "atoms";
 
 export const Header = () => {
   const navigate = useNavigate();
   const [menu, setMenu] = useState(true);
+  const { email, token } = useRecoilValue(userState);
   return (
     <header className={styles["all-content-container"]}>
       <img
@@ -42,18 +45,18 @@ export const Header = () => {
               <CustomLink to={"componentes"} children={"Componentes"} />
             </li>
             <li>
-              <CustomLink to={"/checkEmail"} children={"Mis datos"} />
+              <CustomLink to={"/mis-datos"} children={"Mis datos"} />
             </li>
             <li>
-              <CustomLink to={"/"} children={"Mis mascotas reportadas"} />
+              <CustomLink to={"/mis-mascotas-reportadas"} children={"Mis mascotas reportadas"} />
             </li>
             <li>
-              <CustomLink to={"/"} children={"Reportar mascota"} />
+              <CustomLink to={"/reportar-mascota"} children={"Reportar mascota"} />
             </li>
           </ul>
         </nav>
         <div className={styles["logued-name"]}>
-          {/* state.getUserData().logued ? state.getUserData().email : "..." */}
+          <span>{email && token ? "Richard" : "..."}</span>
         </div>
       </div>
       <img
