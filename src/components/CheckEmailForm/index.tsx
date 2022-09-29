@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { FormEvent, useEffect, useState } from "react";
 import { LabelWithInput } from "components/LabelWithInput";
 import { ButtonRose } from "ui/ButtonRose";
 import styles from "./index.css";
@@ -9,10 +9,10 @@ import { useNavigate } from "react-router-dom";
 
 export const CheckEmailForm = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState();
+  // const [email, setEmail] = useState();
   const [userData, setUserData] = useRecoilState(userState);
 
-  async function checkEmailExistInDB(event) {
+  async function checkEmailExistInDB(event: FormEvent) {
     event.preventDefault();
     let $email = event.target["email"].value.trim();
 
@@ -39,13 +39,12 @@ export const CheckEmailForm = () => {
   }
 
   return (
-    <form
-      className={styles.principal_container}
-      onSubmit={(e) => {
-        checkEmailExistInDB(e);
-      }}
-    >
-      <LabelWithInput inputName="email" placeholder="fulanito@ejemplo.com">
+    <form className={styles.principal_container} onSubmit={checkEmailExistInDB}>
+      <LabelWithInput
+        inputName="email"
+        inputType="email"
+        placeholder="fulanito@ejemplo.com"
+      >
         Email
       </LabelWithInput>
       <ButtonRose type="submit">Siguiente</ButtonRose>

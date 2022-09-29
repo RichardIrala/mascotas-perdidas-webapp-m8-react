@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { FormEvent, useEffect } from "react";
 import { LabelWithInput } from "components/LabelWithInput";
 import { ButtonRose } from "ui/ButtonRose";
 import styles from "./index.css";
@@ -12,7 +12,7 @@ export const LoginForm = () => {
   const navigate = useNavigate();
   let { email } = userData;
 
-  async function login(event) {
+  async function loginOnSubmit(event: FormEvent) {
     event.preventDefault();
     let $password = event.target["password"].value.trim();
 
@@ -35,12 +35,7 @@ export const LoginForm = () => {
   }, [userData]);
 
   return (
-    <form
-      className={styles.principal_container}
-      onSubmit={(e) => {
-        login(e);
-      }}
-    >
+    <form className={styles.principal_container} onSubmit={loginOnSubmit}>
       <LabelWithInput
         inputName="password"
         autocomplete="off"
