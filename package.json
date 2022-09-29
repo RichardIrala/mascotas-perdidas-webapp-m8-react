@@ -5,6 +5,7 @@
   "license": "MIT",
   "dependencies": {
     "cross-env": "^7.0.3",
+    "dropzone": "^6.0.0-beta.2",
     "live-server": "^1.2.2",
     "mapbox-gl": "^2.10.0",
     "react": "^18.2.0",
