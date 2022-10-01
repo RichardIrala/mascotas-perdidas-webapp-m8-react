@@ -48,7 +48,9 @@ export const API = {
   },
 
   async mascotasCercaDe(lat: number, lng: number) {
-    const res = await fetch(path(`/pets/cerca-de?lat=${lat.toString()}&lng=${lng.toString()}`));
+    const res = await fetch(
+      path(`/pets/cerca-de?lat=${lat.toString()}&lng=${lng.toString()}`)
+    );
 
     let status = res.status;
     let resjson = await res.json();
@@ -93,11 +95,40 @@ export const API = {
     return { status, resjson };
   },
 
+  async modifyPetInformation(
+    petInfo: {
+      name: string;
+      last_location: string;
+      lat: number;
+      lng: number;
+      pictureURL: string;
+    },
+    petId: number,
+    token: string
+  ) {
+    const { name, last_location, lat, lng, pictureURL } = petInfo;
+    const raw = JSON.stringify({ last_location, lat, lng, name, pictureURL });
+
+    const res = await fetch(path(`/pets/modify-pet?petId=${petId}`), {
+      method: "PATCH",
+      body: raw,
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    let status = res.status;
+    let resjson = await res.json();
+
+    return { status, resjson };
+  },
+
   async petsReportedByUser(token: string) {
     const res = await fetch(path("/pets/reported-by-user"), {
       headers: { Authorization: `Bearer ${token}` },
     });
-console.log(`Bearer ${token}`, "este es el token enviado")
+    
     let status = res.status;
     let resjson = await res.json();
 
