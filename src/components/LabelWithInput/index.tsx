@@ -4,9 +4,9 @@ interface LabelWithInputProps {
   children: string;
   inputName: string;
   inputType?: string;
-  //   extraClass?: string;
   placeholder?: string;
   autocomplete?: "on" | "off";
+  // extraClass?: string
 }
 
 export const LabelWithInput = (props: LabelWithInputProps) => {
@@ -23,5 +23,3 @@ export const LabelWithInput = (props: LabelWithInputProps) => {
     </label>
   );
 };
-
-//  {props.extraClass ? props.extraClass : ""} <== era parte del form__input pero tengo que analizar si lo requiero

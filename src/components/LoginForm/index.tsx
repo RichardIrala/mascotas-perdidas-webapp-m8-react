@@ -30,10 +30,6 @@ export const LoginForm = () => {
     }
   }
 
-  useEffect(() => {
-    console.log(userData);
-  }, [userData]);
-
   return (
     <form className={styles.principal_container} onSubmit={loginOnSubmit}>
       <LabelWithInput
