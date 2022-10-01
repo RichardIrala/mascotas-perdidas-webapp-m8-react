@@ -57,7 +57,7 @@ export const Header = () => {
         </nav>
         <div className={styles["logued-name"]}>
           {/* email en el header */}
-          <span>{(token && email)  ?? "..."}</span>
+          <span>{(token && email)  || "Invitado"}</span>
         </div>
       </div>
       <img
