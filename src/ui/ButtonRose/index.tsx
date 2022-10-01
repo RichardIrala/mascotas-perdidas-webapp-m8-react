@@ -4,6 +4,7 @@ import styles from "./index.css";
 interface ButtonProps {
   children: any;
   type?: "button" | "submit" | "reset";
+  handleClick?: () => void;
   action?: Function;
 }
 
