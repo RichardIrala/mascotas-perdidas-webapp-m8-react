@@ -56,11 +56,11 @@ export const ReportNewPet = () => {
       { name, last_location, lat, lng, pictureURL, description },
       token
     );
-    console.log(res, "problems?");
+    
     // Crear una redirección y un recargar información para un átomo que guarde los datos de las mascotas reportadas :3
     if (Boolean(res.resjson.pet.id)) {
       alert("Mascota creada con éxito");
-      navigate("/welcome")
+      navigate("/mis-mascotas-reportadas")
     }
   }
 
@@ -78,8 +78,6 @@ export const ReportNewPet = () => {
   useEffect(() => {
     useUserUbication(setUserUbication);
     const foto_pet = getQuerySelector(".foto_pet");
-    console.log(foto_pet, "soy fotopet");
-    console.log("corriendo");
     const myDropzone = new Dropzone("#foto-input", {
       url: "/falsa",
       autoProcessQueue: false,
@@ -89,7 +87,7 @@ export const ReportNewPet = () => {
       //   addRemoveLinks: true,
       previewsContainer: foto_pet,
     });
-    console.log(myDropzone);
+    
     myDropzone.on("thumbnail", function (file) {
       setPictureUrl(file.dataURL);
     });
