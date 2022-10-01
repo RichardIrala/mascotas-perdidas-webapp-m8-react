@@ -1,32 +1,67 @@
 import { Header } from "components/Header";
 import { Mapbox } from "components/Mapbox";
 import { PetCard } from "components/PetCard";
-import React, { useState } from "react";
+import { API } from "helpers/API";
+import React, { useEffect, useState } from "react";
 import { GeneralText } from "ui/GeneralText";
 import { Title } from "ui/Title";
 import styles from "./index.css";
-const cosas = [1, 2, 3, 4, 5];
 //Pagina en proceso
+
 export const Welcome = () => {
+  const [petsNear, setPetsNear] = useState([]);
+  const [userUbication, setUserUbication] = useState<[number, number] | null> (null);
+  useEffect(() => {
+    function getGeolocation() {
+      const aceptoGeoLoc = (position) => {
+        console.log(position.coords.longitude, position.coords.latitude);
+        // Agregar aca un redirector hacia la ruta del welcome
+
+        setTimeout(()=>{setUserUbication([position.coords.longitude, position.coords.latitude]);},3000)
+
+        API.mascotasCercaDe(
+          position.coords.latitude,
+          position.coords.longitude
+        ).then((res) => {
+          setPetsNear(res.resjson);
+          // console.log(res.resjson, "Somos todas las mascotas :3");
+        });
+      };
+      const noAceptoGeoLoc = () => {
+        console.error("Acceso a la ubicación denegado");
+      };
+
+      if (!!navigator.geolocation) {
+        window.navigator.geolocation.getCurrentPosition(
+          aceptoGeoLoc,
+          noAceptoGeoLoc
+        );
+      }
+    }
+    getGeolocation();
+  }, []);
+  console.log(userUbication, "SOY LA UBI DLE USER")
+  if (!Boolean(userUbication)) {
+    return <h1>Cargando</h1>;
+  }
   return (
     <div>
-      <Mapbox goToElementId="petCardsContainer" height="100vh" width="100%" />
-
-      {/* fin del mapa */}
+      <Mapbox goToElementId="petCardsContainer" height="100vh" width="100%" petsNear={true} userUbication={userUbication}/>
       <div className={styles["title-container"]}>
         <Title centred>Mascotas perdidas cerca tuyo</Title>
       </div>
       <div className={styles["pet-cards"]} id="petCardsContainer">
-        {cosas?.map((item, index) => {
+        {/* Mascotas cercanas */}
+        {petsNear?.map((item, index) => {
           return (
             <PetCard
-              key={index}
-              description="si"
-              founded="true"
-              idPet={"4"}
-              last_location="corrientes"
-              petName="Alfredo"
-              pictureURL="https://res.cloudinary.com/richardiral/image/upload/v1662134184/h1mnrupvfcqtq4dif1x2.jpg"
+              key={item.id}
+              description={item.description}
+              founded={item.founded}
+              idPet={item.id}
+              last_location={item.last_location}
+              petName={item.name}
+              pictureURL={item.pictureURL}
             />
           );
         })}
