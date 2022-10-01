@@ -1,0 +1,38 @@
+.titleContainer {
+  padding: 33px 0px;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.flex-dir-column {
+  flex-direction: column;
+}
+
+.gap20 {
+  gap: 20px;
+}
+
+.justify-c-center {
+  justify-content: center;
+}
+
+.align-i-center {
+  align-items: center;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  padding: 33px 0px;
+}
+
+.form__button {
+  padding: 0;
+  border: none;
+}
+
+.marginB50 {
+  margin-bottom: 50px;
+}
