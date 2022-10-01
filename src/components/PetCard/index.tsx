@@ -1,8 +1,10 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Title } from "ui/Title";
 import styles from "./index.css";
 import editIcon from "/assets/edit-icon.png";
 import okIcon from "/assets/ok-icon.png";
+
 interface PetCardProps {
   idPet: string | number;
   petName: string;
@@ -10,7 +12,7 @@ interface PetCardProps {
   pictureURL: string;
   last_location: string;
   founded: string;
-  remove?: string;
+  remove?: boolean;
 }
 
 export const PetCard = (props: PetCardProps) => {
@@ -32,9 +34,13 @@ export const PetCard = (props: PetCardProps) => {
         {!props.remove ? (
           <div className={styles["info-container__report-info"]}>
             <div className={styles["container-null"]}></div>
-            <a href="" className={styles["report-infopet__button"]}>
+            {/* cambiar a una etiqueta LINK */}
+            <Link
+              to={ "/reportar-informacion-de-mascota?id=" + props.idPet.toString() }
+              className={styles["report-infopet__button"]}
+            >
               REPORTAR INFORMACION
-            </a>
+            </Link>
           </div>
         ) : (
           <div className={styles["info-container__report-info"]}>
