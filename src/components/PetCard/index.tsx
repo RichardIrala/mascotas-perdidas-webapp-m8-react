@@ -44,7 +44,9 @@ export const PetCard = (props: PetCardProps) => {
           </div>
         ) : (
           <div className={styles["info-container__report-info"]}>
-            <img className={styles["edit-pet"]} src={editIcon} />
+            <Link to={ "/modificar-mascota?id=" + props.idPet.toString() }>
+              <img className={styles["edit-pet"]} src={editIcon} />
+            </Link>
             <img className={styles["pet-found"]} src={okIcon} />
           </div>
         )}
