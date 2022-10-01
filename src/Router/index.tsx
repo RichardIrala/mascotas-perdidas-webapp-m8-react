@@ -4,6 +4,7 @@ import { CheckEmail } from "pages/CheckEmail";
 import { Componentes } from "pages/Componentes";
 import { Homepage } from "pages/Homepage";
 import { Login } from "pages/Login";
+import { ModifyPetData } from "pages/ModifyPetData";
 import { MyPetsReported } from "pages/MyPetsReported";
 import { MyProfile } from "pages/MyProfile";
 import { ReportNewPet } from "pages/ReportNewPet";
@@ -30,6 +31,9 @@ export const AppRoutes = () => {
           : <Navigate to={"/checkEmail"} />}/>
         <Route path="reportar-mascota" element={!!token 
           ? <ReportNewPet /> 
+          : <Navigate to={"/checkEmail"} />}/>
+        <Route path="modificar-mascota" element={!!token 
+          ? <ModifyPetData /> 
           : <Navigate to={"/checkEmail"} />}/>
         <Route path="reportar-informacion-de-mascota" element={!!token 
           ? <ReportPetInformation /> 

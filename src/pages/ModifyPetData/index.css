@@ -1,0 +1,66 @@
+.principal-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 335px;
+  margin: auto;
+  --height-img: 335px;
+}
+
+.title-container {
+  display: flex;
+  justify-content: center;
+  padding: 33px 0px;
+}
+
+.old-pet-pic {
+  width: 335px;
+  height: 335px;
+  border: 3px #4e0101 solid;
+  border-radius: 20%;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+  margin-bottom: 33px;
+}
+
+.secundary-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 50px;
+}
+
+.buttonToUploadImage {
+  width: 335px;
+  cursor: pointer;
+  font-family: var(--principalFont);
+  font-weight: var(--weightMedium);
+  background-color: #17bbd5;
+}
+.display-none {
+  display: none;
+}
+.dz-remove {
+  color: black;
+  font-size: 32px;
+}
+.dz-image img {
+  height: var(--height-img);
+}
+.bordes {
+  width: fit-content;
+  height: var(--height-img);
+  border: 3px #4e0101 solid;
+  border-radius: 20%;
+  overflow: hidden;
+  -webkit-box-shadow: 5px 5px 15px 5px #000000;
+  box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.form__button {
+  padding: 0;
+  border: none;
+}
