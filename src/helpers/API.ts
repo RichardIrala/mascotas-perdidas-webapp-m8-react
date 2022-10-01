@@ -34,7 +34,6 @@ export const API = {
   },
   async authRegister(email: string, password: string, firstName: string) {
     const raw = JSON.stringify({ email, password, firstName });
-    console.log(raw);
 
     const res = await fetch(path("/auth"), {
       method: "POST",
@@ -49,7 +48,7 @@ export const API = {
   },
 
   async mascotasCercaDe(lat: number, lng: number) {
-    const res = await fetch(path(`/pets/cerca-de?lat=${lat}&lng=${lng}`));
+    const res = await fetch(path(`/pets/cerca-de?lat=${lat.toString()}&lng=${lng.toString()}`));
 
     let status = res.status;
     let resjson = await res.json();
@@ -98,6 +97,33 @@ export const API = {
     const res = await fetch(path("/pets/reported-by-user"), {
       headers: { Authorization: `Bearer ${token}` },
     });
+console.log(`Bearer ${token}`, "este es el token enviado")
+    let status = res.status;
+    let resjson = await res.json();
+
+    return { status, resjson };
+  },
+
+  async sendReportEmail(petId: number, information: string, token: string) {
+    const raw = JSON.stringify({ petId, information });
+
+    const res = await fetch("/pets/petinfo/email", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+      body: raw,
+    });
+
+    let status = res.status;
+    let resjson = await res.json();
+
+    return { status, resjson };
+  },
+
+  async getPet(id: number) {
+    const res = await fetch(path("/pets/" + id.toString()));
 
     let status = res.status;
     let resjson = await res.json();
