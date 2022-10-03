@@ -47,6 +47,33 @@ export const API = {
     return { status, resjson };
   },
 
+  async changePassword(
+    oldPassword: string,
+    newPassword: string,
+    token: string
+  ) {
+    const raw = JSON.stringify({ oldPassword, newPassword });
+
+    const res = await fetch(path("/auth/change-password"), {
+      method: "POST",
+      body: raw,
+      headers: {
+        "content-type": "application/json",
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    let status = res.status;
+    let resjson = await res.json();
+
+    /* Posibles respuestas si todo sale bien:
+       "Contraseña erronea" || "Cambio de contraseña exitoso" : estos mensajes dentro de un objeto { message: respuesta }
+       Si hay errores con el backend podrían haber otras respuestas.
+    */
+
+    return { status, resjson };
+  },
+
   async mascotasCercaDe(lat: number, lng: number) {
     const res = await fetch(
       path(`/pets/cerca-de?lat=${lat.toString()}&lng=${lng.toString()}`)
@@ -128,7 +155,21 @@ export const API = {
     const res = await fetch(path("/pets/reported-by-user"), {
       headers: { Authorization: `Bearer ${token}` },
     });
-    
+
+    let status = res.status;
+    let resjson = await res.json();
+
+    return { status, resjson };
+  },
+
+  async setPetFounded(petId: number, token: string) {
+    const res = await fetch(path(`/pets/${petId}/founded`), {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
     let status = res.status;
     let resjson = await res.json();
 
@@ -138,7 +179,7 @@ export const API = {
   async sendReportEmail(petId: number, information: string, token: string) {
     const raw = JSON.stringify({ petId, information });
 
-    const res = await fetch("/pets/petinfo/email", {
+    const res = await fetch(path("/pets/petinfo/email"), {
       method: "POST",
       headers: {
         "content-type": "application/json",
