@@ -1,5 +1,5 @@
-// const API_BASE_URL = "https://mascotas-perdidas-webapp-m7.herokuapp.com/";
-const API_BASE_URL = "http://localhost:3000";
+const API_BASE_URL = "https://mascotas-perdidas-webapp-m7.herokuapp.com";
+// const API_BASE_URL = "http://localhost:3000";
 
 function path(path: string) {
   return API_BASE_URL + path;
