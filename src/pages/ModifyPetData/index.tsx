@@ -11,6 +11,7 @@ import { useRecoilValue } from "recoil";
 import { userState } from "atoms";
 import { useUserUbication } from "hooks/useUserUbication";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Loader } from "components/Loader";
 
 // Transformar hooks en customHooks...
 export const ModifyPetData = () => {
@@ -108,7 +109,7 @@ export const ModifyPetData = () => {
  
   
   if (Boolean(!petData)) {
-    return <h1>CARGANDO BRO</h1>
+    return <Loader />
   }
     if (Boolean(!petData?.id)) {
       return <h1>Hubo un problema solicitando la info de la mascota uhh</h1>;

@@ -1,4 +1,5 @@
 import { userState } from "atoms";
+import { Loader } from "components/Loader";
 import { PetCard } from "components/PetCard";
 import { API } from "helpers/API";
 import React, { useEffect, useState } from "react";
@@ -17,6 +18,10 @@ export const MyPetsReported = () => {
       console.log(resjson, "logMyPetsReported");
     });
   }, []);
+
+  if (!Boolean(petsReported)) {
+    return (<Loader />)
+  }
 
   return (
     <div className={styles.principalContainer}>

@@ -1,4 +1,5 @@
 import { Header } from "components/Header";
+import { Loader } from "components/Loader";
 import { Mapbox } from "components/Mapbox";
 import { PetCard } from "components/PetCard";
 import { API } from "helpers/API";
@@ -42,7 +43,7 @@ export const Welcome = () => {
   }, []);
   console.log(userUbication, "SOY LA UBI DLE USER")
   if (!Boolean(userUbication)) {
-    return <h1>Cargando</h1>;
+    return <Loader />;
   }
   return (
     <div>
