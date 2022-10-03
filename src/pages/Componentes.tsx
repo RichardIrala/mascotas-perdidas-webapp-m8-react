@@ -1,6 +1,7 @@
 import { CheckEmailForm } from "components/CheckEmailForm";
 import { Header } from "components/Header";
 import { LabelWithInput } from "components/LabelWithInput";
+import { Loader } from "components/Loader";
 import { LoginForm } from "components/LoginForm";
 import { PetCard } from "components/PetCard";
 import { SignupForm } from "components/SignupForm";
@@ -28,8 +29,8 @@ export const Componentes = () => {
       <br />
       <PetCard
         description="si"
-        founded="true"
-        idPet={"4"}
+        founded={false}
+        idPet={4}
         last_location="Mock1"
         petName="Alfredo"
         pictureURL="https://res.cloudinary.com/richardiral/image/upload/v1662134184/h1mnrupvfcqtq4dif1x2.jpg"
@@ -37,8 +38,8 @@ export const Componentes = () => {
       />
       <PetCard
         description="si"
-        founded="true"
-        idPet={"4"}
+        founded={true}
+        idPet={8}
         last_location="Mock2"
         petName="Alfredo 2"
         pictureURL="https://res.cloudinary.com/richardiral/image/upload/v1662134184/h1mnrupvfcqtq4dif1x2.jpg"
@@ -55,6 +56,8 @@ export const Componentes = () => {
       <SignupForm />
       <br />
       <ButtonLogout />
+      <br />
+      <Loader />
     </div>
   );
 };
