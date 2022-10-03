@@ -14,11 +14,9 @@ interface MapboxProps {
   width: string;
   height: string;
   goToElementId?: string;
-  // Eliminar el petsNear y/o transformar el mismo en un solicitador de información sobre las mascotas, en este caso solo la latitud y longitud, aunque estaria bueno +
   petsNear?: boolean;
-  //Tipar
-  setReferenceForNewPet?;
   userUbication?: [number, number];
+  setReferenceForNewPet?;
 }
 
 export const Mapbox = (props: MapboxProps) => {
@@ -30,16 +28,14 @@ export const Mapbox = (props: MapboxProps) => {
   useEffect(() => {
     function getGeolocation() {
       const aceptoGeoLoc = (position) => {
-        console.log(position.coords.longitude, position.coords.latitude);
+        // console.log(position.coords.longitude, position.coords.latitude);
 
         if (!!props.petsNear) {
-          console.log("pase por aca");
           API.mascotasCercaDe(
             position.coords.latitude,
             position.coords.longitude
           ).then((res) => {
             setPetsNear(res.resjson);
-            // console.log(res.resjson, "<= Mascotas cerca");
           });
         }
       };
@@ -62,7 +58,6 @@ export const Mapbox = (props: MapboxProps) => {
       {/* Mapa mapbox */}
       {props.goToElementId && (
         <button className={styles["absolute-position"]}>
-          {/* Esto podría ser más concluso. Analizar y pensar posibles mejoras. */}
           <a href={"#" + props.goToElementId}>Ir debajo del mapa ⇩</a>
         </button>
       )}
@@ -74,22 +69,17 @@ export const Mapbox = (props: MapboxProps) => {
         }}
         center={referencePoint || props.userUbication}
         zoom={[14]}
-        // Pendiente agregar el evento que me haga un console log de la ubicacion clickeada. A futuro esta recibira un action
         onClick={(event, mapData: any) => {
           if (Boolean(props.setReferenceForNewPet)) {
             const { lng, lat } = mapData.lngLat;
-            // console.log(mapData);
             setReferencePoint([lng, lat]);
             props.setReferenceForNewPet({ lng, lat });
           }
         }}
       >
-        {/* Averiguar qué es el Layer y Feature en mapbox */}
         <Layer type="symbol" id="marker" layout={{ "icon-image": "marker-15" }}>
           <Feature coordinates={[0, 0]} />
         </Layer>
-        {/* Aca iria un map que cree cada market que se renderizara en el mapa  */}
-
         {!!props.userUbication ? (
           <Marker coordinates={props.userUbication} anchor="bottom">
             <div className={styles.userUbicationContainer}>
@@ -103,7 +93,6 @@ export const Mapbox = (props: MapboxProps) => {
         ) : (
           <div></div>
         )}
-        {/* Esta lógica no me convence aunque funciona bien. Recibir las props//Mascotas desde fuera del componente */}
         {petsNear?.map((pet) => {
           let lat = Number(pet.lat);
           let lng = Number(pet.lng);

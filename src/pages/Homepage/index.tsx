@@ -11,8 +11,6 @@ export const Homepage = () => {
 
   function getGeolocation() {
     const aceptoGeoLoc = (position) => {
-      console.log(position.coords.latitude, position.coords.longitude);
-      // Agregar aca un redirector hacia la ruta del welcome
       navigate("/welcome");
     };
     const noAceptoGeoLoc = () => {

@@ -9,7 +9,6 @@ import { useNavigate } from "react-router-dom";
 
 export const CheckEmailForm = () => {
   const navigate = useNavigate();
-  // const [email, setEmail] = useState();
   const [userData, setUserData] = useRecoilState(userState);
 
   async function checkEmailExistInDB(event: FormEvent) {

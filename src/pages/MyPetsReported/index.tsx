@@ -15,7 +15,7 @@ export const MyPetsReported = () => {
   useEffect(() => {
     API.petsReportedByUser(token).then(({ resjson }) => {
       setPetsReported(resjson);
-      console.log(resjson, "logMyPetsReported");
+      // console.log(resjson, "logMyPetsReported");
     });
   }, []);
 

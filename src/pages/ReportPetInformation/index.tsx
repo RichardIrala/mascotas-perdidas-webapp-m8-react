@@ -30,7 +30,7 @@ export const ReportPetInformation = () => {
         $description,
         userData.token
       );
-      // console.log($description, userData.token, petInfoForEmail.id);
+      
       if (res.status === 200) {
         alert("Mensaje enviado");
         navigate("/welcome");

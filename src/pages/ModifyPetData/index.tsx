@@ -66,9 +66,8 @@ export const ModifyPetData = () => {
     API.getPet(idParam).then((res) => {
       if (res.resjson.id) {
         setPetData(res.resjson);
-        console.log(res.resjson, "SOMOS LA MASCOTA")
       } else {
-        console.log(res, "HUBO UN ERROR");
+        console.error(res, "HUBO UN ERROR");
       }
     });
   }, [idParam]);
@@ -88,8 +87,6 @@ export const ModifyPetData = () => {
     if (petData) {
       useUserUbication(setUserUbication);
       const foto_pet = getQuerySelector(".foto_pet");
-      console.log(foto_pet, "soy fotopet");
-      console.log("corriendo");
       const myDropzone = new Dropzone("#foto-input", {
         url: "/falsa",
         autoProcessQueue: false,

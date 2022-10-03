@@ -7,7 +7,6 @@ import React, { useEffect, useState } from "react";
 import { GeneralText } from "ui/GeneralText";
 import { Title } from "ui/Title";
 import styles from "./index.css";
-//Pagina en proceso
 
 export const Welcome = () => {
   const [petsNear, setPetsNear] = useState([]);
@@ -25,7 +24,6 @@ export const Welcome = () => {
           position.coords.longitude
         ).then((res) => {
           setPetsNear(res.resjson);
-          // console.log(res.resjson, "Somos todas las mascotas :3");
         });
       };
       const noAceptoGeoLoc = () => {
@@ -41,7 +39,6 @@ export const Welcome = () => {
     }
     getGeolocation();
   }, []);
-  console.log(userUbication, "SOY LA UBI DLE USER")
   if (!Boolean(userUbication)) {
     return <Loader />;
   }

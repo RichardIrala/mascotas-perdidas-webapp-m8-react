@@ -31,8 +31,6 @@ export const petReportInfoState = selector({
     const petId = get(petReportInfoIdState);
     if (Boolean(petId)) {
       const res = await API.getPet(petId);
-      // agregar un verificacion luego
-      console.log("buenas entre por aqui :3");
       return res.resjson;
     }
   },

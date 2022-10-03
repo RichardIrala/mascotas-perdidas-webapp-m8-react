@@ -6,7 +6,6 @@ interface LabelWithInputProps {
   inputType?: string;
   placeholder?: string;
   autocomplete?: "on" | "off";
-  // extraClass?: string
 }
 
 export const LabelWithInput = (props: LabelWithInputProps) => {

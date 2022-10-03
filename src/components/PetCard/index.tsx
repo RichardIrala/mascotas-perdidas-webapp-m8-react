@@ -58,7 +58,6 @@ export const PetCard = (props: PetCardProps) => {
               className={styles["pet-found"]}
               onClick={async () => {
                 const res = await API.setPetFounded(props.idPet, token);
-                console.log(res);
 
                 if (
                   res.resjson.message ===
