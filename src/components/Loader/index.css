@@ -1,0 +1,101 @@
+@keyframes loadingAnimation {
+  0% {
+    opacity: 1;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1.76, 1.76);
+  }
+  100% {
+    opacity: 0;
+    backface-visibility: hidden;
+    transform: translateZ(0) scale(1, 1);
+  }
+}
+
+.principal-container {
+  position: absolute;
+  margin: 0 50%;
+  /* transform: translate(-50%, 0); */
+  transform: translate(-50%);
+  width: 224px;
+  height: 224px;
+  display: inline-block;
+  overflow: hidden;
+  background: none;
+}
+
+.secundary-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform: translateZ(0) scale(1);
+  backface-visibility: hidden;
+  /**/
+  transform-origin: 0 0;
+}
+
+.secundary-container div {
+  box-sizing: content-box;
+}
+
+.secundary-container div > div {
+  position: absolute;
+  width: 17.92px;
+  height: 17.92px;
+  border-radius: 50%;
+  background: #e05252;
+  animation: loadingAnimation 0.9174311926605504s linear infinite;
+}
+.secundary-container div:nth-child(1) > div {
+  left: 150px;
+  top: 103.00000000000001px;
+  animation-delay: -0.7645259938837919s;
+}
+.secundary-container > div:nth-child(1) {
+  transform: rotate(0deg);
+  transform-origin: 158.96px 111.96000000000001px;
+}
+.secundary-container div:nth-child(2) > div {
+  left: 127.00000000000001px;
+  top: 144px;
+  animation-delay: -0.6116207951070336s;
+}
+.secundary-container > div:nth-child(2) {
+  transform: rotate(60deg);
+  transform-origin: 135.96px 152.96px;
+}
+.secundary-container div:nth-child(3) > div {
+  left: 80.00000000000001px;
+  top: 144px;
+  animation-delay: -0.45871559633027514s;
+}
+.secundary-container > div:nth-child(3) {
+  transform: rotate(120deg);
+  transform-origin: 88.96000000000001px 152.96px;
+}
+.secundary-container div:nth-child(4) > div {
+  left: 56.000000000000014px;
+  top: 103.00000000000001px;
+  animation-delay: -0.3058103975535168s;
+}
+.secundary-container > div:nth-child(4) {
+  transform: rotate(180deg);
+  transform-origin: 64.96000000000001px 111.96000000000001px;
+}
+.secundary-container div:nth-child(5) > div {
+  left: 80.00000000000001px;
+  top: 62.000000000000014px;
+  animation-delay: -0.1529051987767584s;
+}
+.secundary-container > div:nth-child(5) {
+  transform: rotate(240deg);
+  transform-origin: 88.96000000000001px 70.96000000000001px;
+}
+.secundary-container div:nth-child(6) > div {
+  left: 127.00000000000001px;
+  top: 62.000000000000014px;
+  animation-delay: 0s;
+}
+.secundary-container > div:nth-child(6) {
+  transform: rotate(300deg);
+  transform-origin: 135.96px 70.96000000000001px;
+}
