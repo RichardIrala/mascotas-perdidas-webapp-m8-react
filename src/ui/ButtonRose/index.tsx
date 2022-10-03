@@ -12,16 +12,12 @@ export const ButtonRose = (props: ButtonProps) => {
   const typeProp = props.type ? props.type : "button";
   const actionExist = !!props.action;
 
-  return !actionExist ? (
-    <button className={styles.button} type={typeProp}>
-      {props.children}
-    </button>
-  ) : (
+  return (
     <button
       className={styles.button}
       type={typeProp}
       onClick={() => {
-        props.action();
+        props.action ? props.action() : null;
       }}
     >
       {props.children}

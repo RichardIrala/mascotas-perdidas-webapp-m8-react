@@ -1,11 +1,11 @@
-import { petReportInfoIdState, petReportInfoState, userState } from "atoms";
+import { userState } from "atoms";
 import { LabelWithInput } from "components/LabelWithInput";
 import { Loader } from "components/Loader";
 import { API } from "helpers/API";
 import { usePetInfoForEmail } from "hooks/usePetInfoForEmail";
-import React, { FormEvent, useEffect, useState } from "react";
-import { useLocation, useNavigate, useParams, useSearchParams } from "react-router-dom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import React, { FormEvent } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { useRecoilState } from "recoil";
 import { ButtonRose } from "ui/ButtonRose";
 import { Title } from "ui/Title";
 import styles from "./index.css";
@@ -17,20 +17,14 @@ export const ReportPetInformation = () => {
   const titulo = "cuentanos más sobre ";
   const idParam = new URLSearchParams(search).get("id");
   const id = parseInt(idParam);
-  // const { id } = useQuery();
   const petInfoForEmail = usePetInfoForEmail(id);
-  // useEffect temporal
-  useEffect(() => {
-    console.log(petInfoForEmail, "SOY toda la info");
-  }, [petInfoForEmail]);
-
+ 
   async function handleSubmit(event: FormEvent) {
     event.preventDefault();
     const $description = event.target["description"].value;
     if (!Boolean($description)) {
       alert("Faltan casillas por completar");
     } else {
-      // aqui
       const res = await API.sendReportEmail(
         petInfoForEmail.id,
         $description,

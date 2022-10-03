@@ -1,10 +1,10 @@
 import { petReportInfoIdState, petReportInfoState } from "atoms";
 import { useEffect, useState } from "react";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue, useSetRecoilState } from "recoil";
 // Investigar sobre la alerta que me sucede específicamente por este hook
 export function usePetInfoForEmail(id: number) {
-  const [petReportInfoId, setPetReportInfoId] =
-    useRecoilState(petReportInfoIdState);
+  const setPetReportInfoId = useSetRecoilState(petReportInfoIdState);
+
   useEffect(() => {
     setPetReportInfoId(id);
   }, []);

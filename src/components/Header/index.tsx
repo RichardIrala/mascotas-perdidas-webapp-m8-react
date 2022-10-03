@@ -42,9 +42,6 @@ export const Header = () => {
         <nav className={styles["menu-burger__nav"]}>
           <ul className={styles["menu-burger__nav__ul"]}>
             <li>
-              <CustomLink to={"/componentes"} children={"Componentes"} />
-            </li>
-            <li>
               <CustomLink to={"/mis-datos"} children={"Mis datos"} />
             </li>
             <li>

@@ -5,6 +5,13 @@
   font-family: var(--principalFont);
   font-weight: var(--weightBold);
 }
+
+@media (max-width: 500px) {
+  .menu-burger--content {
+    font-size: 30px;
+  }
+}
+
 @media (min-width: 900px) {
   .menu-burger--content {
     font-size: 20px;
