@@ -42,13 +42,19 @@ export const Header = () => {
         <nav className={styles["menu-burger__nav"]}>
           <ul className={styles["menu-burger__nav__ul"]}>
             <li>
-              <CustomLink to={"/mis-datos"} children={"Mis datos"} />
+              <CustomLink onClick={()=> {
+                setMenu(true)
+              }} to={"/mis-datos"} children={"Mis datos"} />
             </li>
             <li>
-              <CustomLink to={"/mis-mascotas-reportadas"} children={"Mis mascotas reportadas"} />
+              <CustomLink onClick={()=> {
+                setMenu(true)
+              }} to={"/mis-mascotas-reportadas"} children={"Mis mascotas reportadas"} />
             </li>
             <li>
-              <CustomLink to={"/reportar-mascota"} children={"Reportar mascota"} />
+              <CustomLink onClick={()=> {
+                setMenu(true)
+              }} to={"/reportar-mascota"} children={"Reportar mascota"} />
             </li>
           </ul>
         </nav>

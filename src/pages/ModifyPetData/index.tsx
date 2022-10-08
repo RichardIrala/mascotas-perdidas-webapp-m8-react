@@ -96,7 +96,7 @@ export const ModifyPetData = () => {
         //   addRemoveLinks: true,
         previewsContainer: foto_pet,
       });
-      console.log(myDropzone);
+      // console.log(myDropzone);
       myDropzone.on("thumbnail", function (file) {
         setPictureUrl(file.dataURL);
       });

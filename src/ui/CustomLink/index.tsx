@@ -5,11 +5,12 @@ import styles from "./index.css";
 interface CustomLinkProps {
   to: any;
   children: String;
+  onClick?: () => void;
 }
 
 export const CustomLink = (props: CustomLinkProps) => {
   return (
-    <Link to={props.to} className={styles["menu-burger--content"]}>
+    <Link to={props.to} className={styles["menu-burger--content"]} onClick={props.onClick}>
       {props.children}
     </Link>
   );
